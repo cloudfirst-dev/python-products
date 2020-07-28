@@ -9,6 +9,7 @@ app.config["DEBUG"] = True
 
 ratingPort = os.environ.get('RATING_PORT') if os.environ.get('RATING_PORT') is not None else '8080'
 ratingHost = os.environ.get('RATING_HOST') if os.environ.get('RATING_HOST') is not None else 'rating'
+ratingUrl = os.environ.get('RATING_URL') if os.environ.get('RATING_URL') is not None else "http://" + ratingHost + ":" + ratingPort
 
 
 @app.route('/', methods=['GET'])
@@ -19,7 +20,7 @@ def home():
 def reviews(id):
     return jsonify({
         'id': id,
-        'votes': requests.get("http://" + ratingHost + ":" + ratingPort + "/review/1").json()['votes']
+        'votes': requests.get(ratingUrl + "/review/1").json()['votes']
     })
 
 port = os.environ.get('FLASK_PORT') if os.environ.get('FLASK_PORT') is not None else 8080
