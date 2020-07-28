@@ -22,7 +22,7 @@ jobs:
     - uses: jacobsee/s2i-github-action@master
       with:
         path: product-service
-        base: registry.access.redhat.com/ubi8/python-38:latest
+        base: registry.access.redhat.com/ubi8/python-38
         output_image: quay.io/cloudfirst/python-product-service:latest
         image_push_registry: quay.io
         image_push_username: ${{ secrets.DOCKER_USERNAME }}
