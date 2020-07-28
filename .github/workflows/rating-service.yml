@@ -23,7 +23,7 @@ jobs:
       with:
         path: rating-service
         base: registry.access.redhat.com/ubi8/python-38:latest
-        output_image: quay.io/cloudfirst/dotnet-rating-service:latest
+        output_image: quay.io/cloudfirst/python-rating-service:latest
         image_push_registry: quay.io
         image_push_username: ${{ secrets.DOCKER_USERNAME }}
         image_push_password: ${{ secrets.DOCKER_PASSWORD }}
